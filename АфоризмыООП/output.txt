@@ -1,0 +1,12 @@
+Filled container. 
+Container contains 4 elements.
+0: It's an Aphorism: You miss 100% of the shots you don’t take.lagflaglalg
+Aphorism's author is: Wayne Gretzkyagalgalglaglalg
+1: It's an Aphorism: Success is the child of audacity.
+Aphorism's author is: Benjamin Disraeli
+2: It's a Proverb: Two wrongs don't make a right.
+Proverbs's country is: England
+3: It's an Aphorism: You miss 100% of the shots you don’t take.
+Aphorism's author is: Wayne Gretzky
+Empty container. 
+Container contains 0 elements.
