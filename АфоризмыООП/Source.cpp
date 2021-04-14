@@ -3,7 +3,7 @@
 Container::Container() {
     Head = new Node();
     Head->Cont = NULL;
-    Head->Next = Head;
+    Head->Next = NULL; //было head
 }
 
 void Container::In(ifstream& ifst) {
@@ -24,11 +24,19 @@ void Container::In(ifstream& ifst) {
         {
             if ((Temp->Cont = Storehouse::In(ifst)) != 0)
             {
-                P = Head->Next;
-                Head->Next = Temp;
+                
+                Node* cur = Head;
+                while (cur->Next != NULL)
+                {
+                    cur = cur->Next;
+                }
+
+                P = cur->Next;
+                cur->Next = Temp;
                 Temp->Next = P;
-                Head = Temp;
+                cur = Temp;
                 Len++;
+
             }
         }
     }
