@@ -41,6 +41,16 @@ public:
     Proverb() {};
 };
 
+//Класс загадок
+class Riddle : public Storehouse {
+    string Content; //Содержание 
+    string Answer; //Ответ
+public:
+    void In_Data(ifstream& ifst); //Функция ввода информации 
+    void Out_Data(ofstream& ofst); //Функция вывода информации 
+    Riddle() {};
+};
+
 //Узел контейнера
 struct Node {
     Node* Next; //Указатель на следующий узел

@@ -3,7 +3,7 @@
 Container::Container() {
     Head = new Node();
     Head->Cont = NULL;
-    Head->Next = NULL; //было head
+    Head->Next = NULL;
 }
 
 void Container::In(ifstream& ifst) {
@@ -24,7 +24,6 @@ void Container::In(ifstream& ifst) {
         {
             if ((Temp->Cont = Storehouse::In(ifst)) != 0)
             {
-                
                 Node* cur = Head;
                 while (cur->Next != NULL)
                 {
@@ -36,7 +35,6 @@ void Container::In(ifstream& ifst) {
                 Temp->Next = P;
                 cur = Temp;
                 Len++;
-
             }
         }
     }
@@ -53,6 +51,10 @@ Storehouse* Storehouse::In(ifstream& ifst) {
     else if (K == 2)
     {
         St = new Proverb;
+    }
+    else if (K == 3)
+    {
+        St = new Riddle;
     }
     else
     {
@@ -104,6 +106,26 @@ void Proverb::In_Data(ifstream& ifst) {
     Country += Temp_El;
 }
 
+void Riddle::In_Data(ifstream& ifst) {
+    string Temp_El = ""; //Буфер для считывания строк
+
+    //Считываем содержание
+    while (!(ifst >> Temp_El) || (ifst.peek() != '\n'))
+    {
+        Content += Temp_El + " ";
+    }
+
+    Content += Temp_El;
+
+    //Считываем страну
+    while (!(ifst >> Temp_El) || (ifst.peek() != '\n'))
+    {
+        Answer += Temp_El + " ";
+    }
+
+    Answer += Temp_El;
+}
+
 void Container::Out(ofstream& ofst) {
     ofst << "Container contains " << Len
         << " elements." << endl;
@@ -127,6 +149,11 @@ void Aphorism::Out_Data(ofstream& ofst) {
 void Proverb::Out_Data(ofstream& ofst) {
     ofst << "It's a Proverb: " << Content << endl; //Выводим содержание
     ofst << "Proverbs's country is: " << Country << endl; //Выводим страну
+}
+
+void Riddle::Out_Data(ofstream& ofst) {
+    ofst << "It's a Riddle: " << Content << endl; //Выводим содержание
+    ofst << "Riddle's answer is: " << Answer << endl;
 }
 
 void Container::Clear() {
