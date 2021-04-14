@@ -5,13 +5,13 @@ Benjamin Disraeli
 Two wrongs don't make a right.
 England
 1
-You miss 100% of the shots you don’t take.
+You miss 100% of the shots you don't take.
 Wayne Gretzky
 1
-You1 miss 100% of the shots you don’t take.
+You1 miss 100 of the shots you don't take.
 Wayne Gretzky
 1
-111111
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
 222222
 2
 adcdef

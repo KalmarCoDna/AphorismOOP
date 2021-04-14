@@ -17,6 +17,7 @@ public:
     virtual void Out_Data(ofstream& ofst) = 0; //Чисто вирутальная функция вывода информации
                                               //о кладезе, она будет определена для
                                               //каждого класса кладезя
+    virtual int Amount() = 0;
 protected:
     Storehouse() {};
 };
@@ -28,6 +29,7 @@ class Aphorism : public Storehouse {
 public:
     void In_Data(ifstream& ifst); //Функция ввода информации об афоризме
     void Out_Data(ofstream& ofst); //Функция вывода информации об афоризме
+    int Amount();
     Aphorism() {};
 };
 
@@ -38,6 +40,7 @@ class Proverb : public Storehouse {
 public:
     void In_Data(ifstream& ifst); //Функция ввода информации о поговорке или пословице
     void Out_Data(ofstream& ofst); //Функция вывода информации о поговорке или пословице
+    int Amount();
     Proverb() {};
 };
 

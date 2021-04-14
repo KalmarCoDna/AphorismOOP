@@ -3,7 +3,7 @@
 Container::Container() {
     Head = new Node();
     Head->Cont = NULL;
-    Head->Next = NULL; //áûëî head
+    Head->Next = NULL;
 }
 
 void Container::In(ifstream& ifst) {
@@ -24,7 +24,6 @@ void Container::In(ifstream& ifst) {
         {
             if ((Temp->Cont = Storehouse::In(ifst)) != 0)
             {
-                
                 Node* cur = Head;
                 while (cur->Next != NULL)
                 {
@@ -36,7 +35,6 @@ void Container::In(ifstream& ifst) {
                 Temp->Next = P;
                 cur = Temp;
                 Len++;
-
             }
         }
     }
@@ -114,6 +112,7 @@ void Container::Out(ofstream& ofst) {
         {
             ofst << i << ": ";
             Head->Cont->Out_Data(ofst);
+            ofst << "Amount of punctuation marks in the content of storehouse = " << Head->Cont->Amount() << endl;
             Head = Head->Next;
         }
     }
@@ -140,4 +139,56 @@ void Container::Clear() {
         }
         Head = NULL;
     }
+}
+
+int Aphorism::Amount() {
+    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿ 0123456789";
+    int Amount = 0;
+
+    for (int i = 0; i < Content.size(); i++)
+    {
+        bool Check = false;
+
+        for (int j = 0; j < Alph.size(); j++)
+        {
+            if (Content[i] == Alph[j])
+            {
+                Check = true;
+                break;
+            }
+        }
+
+        if (!Check)
+        {
+            Amount++;
+        }
+    }
+
+    return Amount;
+}
+
+int Proverb::Amount() {
+    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿ 0123456789";
+    int Amount = 0;
+
+    for (int i = 0; i < Content.size(); i++)
+    {
+        bool Check = false;
+
+        for (int j = 0; j < Alph.size(); j++)
+        {
+            if (Content[i] == Alph[j])
+            {
+                Check = true;
+                break;
+            }
+        }
+
+        if (!Check)
+        {
+            Amount++;
+        }
+    }
+
+    return Amount;
 }
