@@ -142,7 +142,7 @@ void Container::Clear() {
 }
 
 int Aphorism::Amount() {
-    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿ 0123456789";
+    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789";
     int Amount = 0;
 
     for (int i = 0; i < Content.size(); i++)
@@ -168,7 +168,7 @@ int Aphorism::Amount() {
 }
 
 int Proverb::Amount() {
-    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿ 0123456789";
+    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789";
     int Amount = 0;
 
     for (int i = 0; i < Content.size(); i++)
@@ -191,4 +191,36 @@ int Proverb::Amount() {
     }
 
     return Amount;
+}
+
+bool Storehouse::Compare(Storehouse* other) {
+    return Amount() > other->Amount();
+}
+
+void Container::Sort() {
+    if (Len > 1)
+    {
+        Node* First = Head;
+        Node* Second = Head->Next;
+
+        Node* Temp = new Node;
+
+        for (int i = 0; i < Len - 1; i++)
+        {
+            for (int j = 0; j < Len - i - 1; j++)
+            {
+                if (First->Cont->Compare(Second->Cont))
+                {
+                    Temp->Cont = First->Cont;
+                    First->Cont = Second->Cont;
+                    Second->Cont = Temp->Cont;
+                }
+
+                Second = Second->Next;
+            }
+
+            First = First->Next;
+            Second = First->Next;
+        }
+    }
 }

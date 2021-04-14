@@ -18,6 +18,7 @@ public:
                                               //о кладезе, она будет определена для
                                               //каждого класса кладезя
     virtual int Amount() = 0;
+    bool Compare(Storehouse* Other);
 protected:
     Storehouse() {};
 };
@@ -58,6 +59,7 @@ public:
     void In(ifstream& ifst); //Функция ввода элемента в контейнер
     void Out(ofstream& ofst); //Функция вывода элемента из контейнера
     void Clear(); //Функция очищения контейнера
+    void Sort();
     Container(); //Конструктор (по сути инициализатор контейнера)
     ~Container() { Clear(); } //Деструктор
 };
