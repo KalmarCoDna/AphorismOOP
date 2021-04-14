@@ -17,6 +17,7 @@ public:
     virtual void Out_Data(ofstream& ofst) = 0; //Чисто вирутальная функция вывода информации
                                               //о кладезе, она будет определена для
                                               //каждого класса кладезя
+    virtual void Out_Only_Aphorism(ofstream& ofst);
 protected:
     Storehouse() {};
 };
@@ -28,6 +29,7 @@ class Aphorism : public Storehouse {
 public:
     void In_Data(ifstream& ifst); //Функция ввода информации об афоризме
     void Out_Data(ofstream& ofst); //Функция вывода информации об афоризме
+    void Out_Only_Aphorism(ofstream& ofst);
     Aphorism() {};
 };
 
@@ -55,6 +57,7 @@ public:
     void In(ifstream& ifst); //Функция ввода элемента в контейнер
     void Out(ofstream& ofst); //Функция вывода элемента из контейнера
     void Clear(); //Функция очищения контейнера
+    void Out_Only_Aphorism(ofstream& ofst);
     Container(); //Конструктор (по сути инициализатор контейнера)
     ~Container() { Clear(); } //Деструктор
 };

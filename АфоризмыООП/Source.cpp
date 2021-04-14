@@ -3,7 +3,7 @@
 Container::Container() {
     Head = new Node();
     Head->Cont = NULL;
-    Head->Next = NULL; //было head
+    Head->Next = NULL;
 }
 
 void Container::In(ifstream& ifst) {
@@ -24,7 +24,6 @@ void Container::In(ifstream& ifst) {
         {
             if ((Temp->Cont = Storehouse::In(ifst)) != 0)
             {
-                
                 Node* cur = Head;
                 while (cur->Next != NULL)
                 {
@@ -36,7 +35,6 @@ void Container::In(ifstream& ifst) {
                 Temp->Next = P;
                 cur = Temp;
                 Len++;
-
             }
         }
     }
@@ -110,11 +108,12 @@ void Container::Out(ofstream& ofst) {
 
     if (Head != NULL)
     {
+        Node* cur = Head;
         for (int i = 0; i < Len; i++)
         {
             ofst << i << ": ";
-            Head->Cont->Out_Data(ofst);
-            Head = Head->Next;
+            cur->Cont->Out_Data(ofst);
+            cur = cur->Next;
         }
     }
 }
@@ -140,4 +139,21 @@ void Container::Clear() {
         }
         Head = NULL;
     }
+}
+
+void Container::Out_Only_Aphorism(ofstream& ofst) {
+    ofst << endl << "Only Aphorisms." << endl;
+    Node* cur = Head;
+    for (int i = 0; i < Len; i++)
+    {
+        cur->Cont->Out_Only_Aphorism(ofst);
+        cur = cur->Next;
+    }
+}
+
+void Storehouse::Out_Only_Aphorism(ofstream& ofst) {
+}
+
+void Aphorism::Out_Only_Aphorism(ofstream& ofst) {
+    Out_Data(ofst);
 }
