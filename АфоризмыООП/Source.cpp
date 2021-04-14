@@ -3,7 +3,7 @@
 Container::Container() {
     Head = new Node();
     Head->Cont = NULL;
-    Head->Next = NULL; //было head
+    Head->Next = NULL;
 }
 
 void Container::In(ifstream& ifst) {
@@ -24,7 +24,6 @@ void Container::In(ifstream& ifst) {
         {
             if ((Temp->Cont = Storehouse::In(ifst)) != 0)
             {
-                
                 Node* cur = Head;
                 while (cur->Next != NULL)
                 {
@@ -36,7 +35,6 @@ void Container::In(ifstream& ifst) {
                 Temp->Next = P;
                 cur = Temp;
                 Len++;
-
             }
         }
     }
@@ -82,6 +80,8 @@ void Aphorism::In_Data(ifstream& ifst) {
     }
 
     Author += Temp_El;
+
+    ifst >> Estimation;
 }
 
 void Proverb::In_Data(ifstream& ifst) {
@@ -102,6 +102,8 @@ void Proverb::In_Data(ifstream& ifst) {
     }
 
     Country += Temp_El;
+
+    ifst >> Estimation;
 }
 
 void Container::Out(ofstream& ofst) {
@@ -122,11 +124,13 @@ void Container::Out(ofstream& ofst) {
 void Aphorism::Out_Data(ofstream& ofst) {
     ofst << "It's an Aphorism: " << Content << endl; //Выводим содержание
     ofst << "Aphorism's author is: " << Author << endl; //Выводим автора
+    ofst << "Subjective estimation of the adage: " << Estimation << endl;
 }
 
 void Proverb::Out_Data(ofstream& ofst) {
     ofst << "It's a Proverb: " << Content << endl; //Выводим содержание
     ofst << "Proverbs's country is: " << Country << endl; //Выводим страну
+    ofst << "Subjective estimation of the adage: " << Estimation << endl;
 }
 
 void Container::Clear() {
