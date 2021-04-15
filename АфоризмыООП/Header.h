@@ -19,6 +19,7 @@ public:
                                               //каждого класса кладезя
     virtual int Amount() = 0;
     bool Compare(Storehouse* Other);
+    virtual void Out_Only_Aphorism(ofstream& ofst);
 protected:
     Storehouse() {};
 };
@@ -32,6 +33,7 @@ public:
     void In_Data(ifstream& ifst); //Функция ввода информации об афоризме
     void Out_Data(ofstream& ofst); //Функция вывода информации об афоризме
     int Amount();
+    void Out_Only_Aphorism(ofstream& ofst);
     Aphorism() {};
 };
 
@@ -51,9 +53,11 @@ public:
 class Riddle : public Storehouse {
     string Content; //Содержание 
     string Answer; //Ответ
+    int Estimation; //Субъективная оценка изречения
 public:
     void In_Data(ifstream& ifst); //Функция ввода информации 
     void Out_Data(ofstream& ofst); //Функция вывода информации 
+    int Amount();
     Riddle() {};
 };
 
@@ -72,6 +76,7 @@ public:
     void Out(ofstream& ofst); //Функция вывода элемента из контейнера
     void Clear(); //Функция очищения контейнера
     void Sort();
+    void Out_Only_Aphorism(ofstream& ofst);
     Container(); //Конструктор (по сути инициализатор контейнера)
     ~Container() { Clear(); } //Деструктор
 };

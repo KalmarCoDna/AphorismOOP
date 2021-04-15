@@ -35,6 +35,7 @@ void Container::In(ifstream& ifst) {
                 Temp->Next = P;
                 cur = Temp;
                 Len++;
+
             }
         }
     }
@@ -128,20 +129,23 @@ void Riddle::In_Data(ifstream& ifst) {
     }
 
     Answer += Temp_El;
+
+    ifst >> Estimation;
 }
 
 void Container::Out(ofstream& ofst) {
     ofst << "Container contains " << Len
-        << " elements." << endl;
+        << " elements." << endl << endl;
 
     if (Head != NULL)
     {
+        Node* cur = Head;
         for (int i = 0; i < Len; i++)
         {
             ofst << i << ": ";
-            Head->Cont->Out_Data(ofst);
-            ofst << "Amount of punctuation marks in the content of storehouse = " << Head->Cont->Amount() << endl;
-            Head = Head->Next;
+            cur->Cont->Out_Data(ofst);
+            ofst << "Amount of punctuation marks in the content of storehouse = " << cur->Cont->Amount() << endl;
+            cur = cur->Next;
         }
     }
 }
@@ -161,6 +165,7 @@ void Proverb::Out_Data(ofstream& ofst) {
 void Riddle::Out_Data(ofstream& ofst) {
     ofst << "It's a Riddle: " << Content << endl; //Выводим содержание
     ofst << "Riddle's answer is: " << Answer << endl;
+    ofst << "Subjective estimation of the adage: " << Estimation << endl;
 }
 
 void Container::Clear() {
@@ -228,6 +233,32 @@ int Proverb::Amount() {
     return Amount;
 }
 
+int Riddle::Amount() {
+    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789";
+    int Amount = 0;
+
+    for (int i = 0; i < Content.size(); i++)
+    {
+        bool Check = false;
+
+        for (int j = 0; j < Alph.size(); j++)
+        {
+            if (Content[i] == Alph[j])
+            {
+                Check = true;
+                break;
+            }
+        }
+
+        if (!Check)
+        {
+            Amount++;
+        }
+    }
+
+    return Amount;
+}
+
 bool Storehouse::Compare(Storehouse* other) {
     return Amount() > other->Amount();
 }
@@ -258,4 +289,23 @@ void Container::Sort() {
             Second = First->Next;
         }
     }
+}
+
+void Container::Out_Only_Aphorism(ofstream& ofst) {
+    ofst << endl << "Only Aphorisms." << endl;
+
+    for (int i = 0; i < Len; i++)
+    {
+        //ofst << i << ": ";
+        Head->Cont->Out_Only_Aphorism(ofst);
+        Head = Head->Next;
+    }
+}
+
+void Storehouse::Out_Only_Aphorism(ofstream& ofst) {
+    //ofst << endl;
+}
+
+void Aphorism::Out_Only_Aphorism(ofstream& ofst) {
+    Out_Data(ofst);
 }
