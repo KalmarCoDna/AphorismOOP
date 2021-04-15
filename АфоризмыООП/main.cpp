@@ -21,6 +21,8 @@ int main(int argc, char* argv[])
 
     c.Out(ofst);
 
+    c.Out_Only_Aphorism(ofst);
+
     c.Clear();
     ofst << "Empty container. " << endl;
     c.Out(ofst);
