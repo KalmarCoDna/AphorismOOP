@@ -1,9 +1,2 @@
-﻿  Source.cpp
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(148,23): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(152,27): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(174,23): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(178,27): warning C4018: <: несоответствие типов со знаком и без знака
-  main.cpp
-  Создание кода...
-  LINK : не найден или не выполнена сборка C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\Debug\АфоризмыООП.exe при последней инкрементной компоновке; выполняется полная компоновка
+﻿  LINK : не найден или не выполнена сборка C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\Debug\АфоризмыООП.exe при последней инкрементной компоновке; выполняется полная компоновка
   АфоризмыООП.vcxproj -> C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\Debug\АфоризмыООП.exe
