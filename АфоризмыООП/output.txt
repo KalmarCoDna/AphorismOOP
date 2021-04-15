@@ -53,5 +53,5 @@ Aphorism's author is: Wayne Gretzky
 Subjective estimation of the adage: 7
 
 Empty container. 
-Container contains 5 elements.
+Container contains 0 elements.
 

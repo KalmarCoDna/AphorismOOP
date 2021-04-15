@@ -1,10 +1,12 @@
 ﻿  Source.cpp
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(188,23): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(192,27): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(214,23): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(218,27): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(240,23): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(244,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(10,19): warning C4101: P: неиспользованная локальная переменная
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(189,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(193,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(215,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(219,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(241,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(245,27): warning C4018: <: несоответствие типов со знаком и без знака
   main.cpp
   Создание кода...
+  LINK : не найден или не выполнена сборка C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\Debug\АфоризмыООП.exe при последней инкрементной компоновке; выполняется полная компоновка
   АфоризмыООП.vcxproj -> C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\Debug\АфоризмыООП.exe
