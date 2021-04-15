@@ -133,11 +133,12 @@ void Container::Out(ofstream& ofst) {
 
     if (Head != NULL)
     {
+        Node* cur = Head;
         for (int i = 0; i < Len; i++)
         {
             ofst << i << ": ";
-            Head->Cont->Out_Data(ofst);
-            Head = Head->Next;
+            cur->Cont->Out_Data(ofst);
+            cur = cur->Next;
         }
     }
 }
