@@ -84,6 +84,8 @@ void Aphorism::In_Data(ifstream& ifst) {
     }
 
     Author += Temp_El;
+
+    ifst >> Estimation;
 }
 
 void Proverb::In_Data(ifstream& ifst) {
@@ -104,6 +106,8 @@ void Proverb::In_Data(ifstream& ifst) {
     }
 
     Country += Temp_El;
+
+    ifst >> Estimation;
 }
 
 void Riddle::In_Data(ifstream& ifst) {
@@ -145,11 +149,13 @@ void Container::Out(ofstream& ofst) {
 void Aphorism::Out_Data(ofstream& ofst) {
     ofst << "It's an Aphorism: " << Content << endl; //Выводим содержание
     ofst << "Aphorism's author is: " << Author << endl; //Выводим автора
+    ofst << "Subjective estimation of the adage: " << Estimation << endl;
 }
 
 void Proverb::Out_Data(ofstream& ofst) {
     ofst << "It's a Proverb: " << Content << endl; //Выводим содержание
     ofst << "Proverbs's country is: " << Country << endl; //Выводим страну
+    ofst << "Subjective estimation of the adage: " << Estimation << endl;
 }
 
 void Riddle::Out_Data(ofstream& ofst) {

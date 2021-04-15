@@ -27,6 +27,7 @@ protected:
 class Aphorism : public Storehouse {
     string Content; //Содержание афоризма
     string Author; //Автора афоризма
+    int Estimation; //Субъективная оценка изречения
 public:
     void In_Data(ifstream& ifst); //Функция ввода информации об афоризме
     void Out_Data(ofstream& ofst); //Функция вывода информации об афоризме
@@ -38,6 +39,7 @@ public:
 class Proverb : public Storehouse {
     string Content; //Содержание пословицы или поговорки
     string Country; //Страна пословицы или поговорки
+    int Estimation; //Субъективная оценка изречения
 public:
     void In_Data(ifstream& ifst); //Функция ввода информации о поговорке или пословице
     void Out_Data(ofstream& ofst); //Функция вывода информации о поговорке или пословице
