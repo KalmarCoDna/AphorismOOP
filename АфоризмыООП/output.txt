@@ -19,4 +19,4 @@ Amount of punctuation marks in the content of storehouse = 0
 Proverbs's country is: qwerty
 Amount of punctuation marks in the content of storehouse = 0
 Empty container. 
-Container contains 6 elements.
+Container contains 0 elements.
