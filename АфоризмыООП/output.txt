@@ -10,4 +10,4 @@ Subjective estimation of the adage: 4
 Aphorism's author is: Wayne Gretzky
 Subjective estimation of the adage: 9
 Empty container. 
-Container contains 3 elements.
+Container contains 0 elements.

@@ -1,4 +1,5 @@
 ﻿  Source.cpp
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(10,19): warning C4101: P: неиспользованная локальная переменная
   main.cpp
   Создание кода...
   LINK : не найден или не выполнена сборка C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\Debug\АфоризмыООП.exe при последней инкрементной компоновке; выполняется полная компоновка
