@@ -19,4 +19,4 @@ Amount of punctuation marks in the content of storehouse = 2
 Aphorism's author is: Wayne Gretzky
 Amount of punctuation marks in the content of storehouse = 3
 Empty container. 
-Container contains 6 elements.
+Container contains 0 elements.

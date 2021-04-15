@@ -3,7 +3,7 @@
 Container::Container() {
     Head = new Node();
     Head->Cont = NULL;
-    Head->Next = NULL;
+    Head->Next = Head;
 }
 
 void Container::In(ifstream& ifst) {
@@ -24,16 +24,17 @@ void Container::In(ifstream& ifst) {
         {
             if ((Temp->Cont = Storehouse::In(ifst)) != 0)
             {
-                Node* cur = Head;
-                while (cur->Next != NULL)
+                Node* last = Head;
+                for (int i = 0; i < (Len - 1); i++)
                 {
-                    cur = cur->Next;
+                    last = last->Next;
                 }
 
-                P = cur->Next;
-                cur->Next = Temp;
-                Temp->Next = P;
-                cur = Temp;
+                //P = Head->Next;
+                Temp->Next = Head;
+                last->Next = Temp;
+                //Temp->Next = P;
+                //last = Temp;
                 Len++;
             }
         }
@@ -108,12 +109,13 @@ void Container::Out(ofstream& ofst) {
 
     if (Head != NULL)
     {
+        Node* cur = Head;
         for (int i = 0; i < Len; i++)
         {
             ofst << i << ": ";
-            Head->Cont->Out_Data(ofst);
-            ofst << "Amount of punctuation marks in the content of storehouse = " << Head->Cont->Amount() << endl;
-            Head = Head->Next;
+            cur->Cont->Out_Data(ofst);
+            ofst << "Amount of punctuation marks in the content of storehouse = " << cur->Cont->Amount() << endl;
+            cur = cur->Next;
         }
     }
 }
