@@ -13,4 +13,4 @@ Aphorism's author is: 222222
 5: It's a Proverb: adcdef
 Proverbs's country is: qwerty
 Empty container. 
-Container contains 6 elements.
+Container contains 0 elements.
