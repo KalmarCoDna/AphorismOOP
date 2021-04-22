@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "АфоризмыООП", "АфоризмыООП\АфоризмыООП.vcxproj", "{6C990BF5-BC64-446A-AFC1-47FE97C0965E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{6C990BF5-BC64-446A-AFC1-47FE97C0965E}.Release|x64.Build.0 = Release|x64
 		{6C990BF5-BC64-446A-AFC1-47FE97C0965E}.Release|x86.ActiveCfg = Release|Win32
 		{6C990BF5-BC64-446A-AFC1-47FE97C0965E}.Release|x86.Build.0 = Release|Win32
+		{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}.Debug|x64.ActiveCfg = Debug|x64
+		{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}.Debug|x64.Build.0 = Debug|x64
+		{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}.Debug|x86.ActiveCfg = Debug|Win32
+		{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}.Debug|x86.Build.0 = Debug|Win32
+		{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}.Release|x64.ActiveCfg = Release|x64
+		{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}.Release|x64.Build.0 = Release|x64
+		{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}.Release|x86.ActiveCfg = Release|Win32
+		{EB844F57-1FFD-4CB0-B550-C6BDCE07D7FE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

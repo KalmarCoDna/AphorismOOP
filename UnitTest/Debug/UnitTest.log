@@ -1,0 +1,4 @@
+﻿  UnitTest.cpp
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(137,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\АфоризмыООП\Source.cpp(141,27): warning C4018: <: несоответствие типов со знаком и без знака
+  UnitTest.vcxproj -> C:\Users\Kalmar\Desktop\Дистанционка\ТиМП\AphorismOOP\Debug\UnitTest.dll

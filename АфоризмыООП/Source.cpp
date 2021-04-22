@@ -24,19 +24,11 @@ void Container::In(ifstream& ifst) {
         {
             if ((Temp->Cont = Storehouse::In(ifst)) != 0)
             {
-                Node* last = Head;
-                for (int i = 0; i < (Len - 1); i++)
-                {
-                    last = last->Next;
-                }
-
-                //P = Head->Next;
-                Temp->Next = Head;
-                last->Next = Temp;
-                //Temp->Next = P;
-                //last = Temp;
+                P = Head->Next;
+                Head->Next = Temp;
+                Temp->Next = P;
+                Head = Temp;
                 Len++;
-
             }
         }
     }
@@ -44,8 +36,13 @@ void Container::In(ifstream& ifst) {
 
 Storehouse* Storehouse::In(ifstream& ifst) {
     Storehouse* St;
-    int K;
-    ifst >> K;
+
+    string Temp = "";
+
+    getline(ifst, Temp);
+
+    int K = atoi(Temp.c_str());
+
     if (K == 1)
     {
         St = new Aphorism;
@@ -63,75 +60,27 @@ Storehouse* Storehouse::In(ifstream& ifst) {
         return 0;
     }
 
+    getline(ifst, St->Content);
+
     St->In_Data(ifst);
+
+    getline(ifst, Temp);
+
+    St->Estimation = atoi(Temp.c_str());
 
     return St;
 }
 
 void Aphorism::In_Data(ifstream& ifst) {
-    string Temp_El = ""; //Буфер для считывания строк
-
-    //Считываем содержание афоризма
-    while (!(ifst >> Temp_El) || (ifst.peek() != '\n'))
-    {
-        Content += Temp_El + " ";
-    }
-
-    Content += Temp_El;
-
-    //Считываем автора афоризма
-    while (!(ifst >> Temp_El) || (ifst.peek() != '\n'))
-    {
-        Author += Temp_El + " ";
-    }
-
-    Author += Temp_El;
-
-    ifst >> Estimation;
+    getline(ifst, Author);
 }
 
 void Proverb::In_Data(ifstream& ifst) {
-    string Temp_El = ""; //Буфер для считывания строк
-
-    //Считываем содержание
-    while (!(ifst >> Temp_El) || (ifst.peek() != '\n'))
-    {
-        Content += Temp_El + " ";
-    }
-
-    Content += Temp_El;
-
-    //Считываем страну
-    while (!(ifst >> Temp_El) || (ifst.peek() != '\n'))
-    {
-        Country += Temp_El + " ";
-    }
-
-    Country += Temp_El;
-
-    ifst >> Estimation;
+    getline(ifst, Country);
 }
 
 void Riddle::In_Data(ifstream& ifst) {
-    string Temp_El = ""; //Буфер для считывания строк
-
-    //Считываем содержание
-    while (!(ifst >> Temp_El) || (ifst.peek() != '\n'))
-    {
-        Content += Temp_El + " ";
-    }
-
-    Content += Temp_El;
-
-    //Считываем страну
-    while (!(ifst >> Temp_El) || (ifst.peek() != '\n'))
-    {
-        Answer += Temp_El + " ";
-    }
-
-    Answer += Temp_El;
-
-    ifst >> Estimation;
+    getline(ifst, Answer);
 }
 
 void Container::Out(ofstream& ofst) {
@@ -140,30 +89,29 @@ void Container::Out(ofstream& ofst) {
 
     if (Head != NULL)
     {
-        Node* cur = Head;
         for (int i = 0; i < Len; i++)
         {
             ofst << i << ": ";
-            cur->Cont->Out_Data(ofst);
-            ofst << "Amount of punctuation marks in the content of storehouse = " << cur->Cont->Amount() << endl;
-            cur = cur->Next;
+            Head->Cont->Out_Data(Head->Cont->Get_Content(), Head->Cont->Get_Estimation(), ofst);
+            ofst << "Amount of punctuation marks in the content of storehouse = " << Head->Cont->Amount() << endl;
+            Head = Head->Next;
         }
     }
 }
 
-void Aphorism::Out_Data(ofstream& ofst) {
+void Aphorism::Out_Data(string Content, int Estimation, ofstream& ofst) {
     ofst << "It's an Aphorism: " << Content << endl; //Выводим содержание
     ofst << "Aphorism's author is: " << Author << endl; //Выводим автора
     ofst << "Subjective estimation of the adage: " << Estimation << endl;
 }
 
-void Proverb::Out_Data(ofstream& ofst) {
+void Proverb::Out_Data(string Content, int Estimation, ofstream& ofst) {
     ofst << "It's a Proverb: " << Content << endl; //Выводим содержание
     ofst << "Proverbs's country is: " << Country << endl; //Выводим страну
     ofst << "Subjective estimation of the adage: " << Estimation << endl;
 }
 
-void Riddle::Out_Data(ofstream& ofst) {
+void Riddle::Out_Data(string Content, int Estimation, ofstream& ofst) {
     ofst << "It's a Riddle: " << Content << endl; //Выводим содержание
     ofst << "Riddle's answer is: " << Answer << endl;
     ofst << "Subjective estimation of the adage: " << Estimation << endl;
@@ -182,59 +130,7 @@ void Container::Clear() {
     }
 }
 
-int Aphorism::Amount() {
-    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789";
-    int Amount = 0;
-
-    for (int i = 0; i < Content.size(); i++)
-    {
-        bool Check = false;
-
-        for (int j = 0; j < Alph.size(); j++)
-        {
-            if (Content[i] == Alph[j])
-            {
-                Check = true;
-                break;
-            }
-        }
-
-        if (!Check)
-        {
-            Amount++;
-        }
-    }
-
-    return Amount;
-}
-
-int Proverb::Amount() {
-    string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789";
-    int Amount = 0;
-
-    for (int i = 0; i < Content.size(); i++)
-    {
-        bool Check = false;
-
-        for (int j = 0; j < Alph.size(); j++)
-        {
-            if (Content[i] == Alph[j])
-            {
-                Check = true;
-                break;
-            }
-        }
-
-        if (!Check)
-        {
-            Amount++;
-        }
-    }
-
-    return Amount;
-}
-
-int Riddle::Amount() {
+int Storehouse::Amount() {
     string Alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789";
     int Amount = 0;
 
@@ -297,16 +193,86 @@ void Container::Out_Only_Aphorism(ofstream& ofst) {
 
     for (int i = 0; i < Len; i++)
     {
-        //ofst << i << ": ";
-        Head->Cont->Out_Only_Aphorism(ofst);
+        ofst << i << ": ";
+        Head->Cont->Out_Only_Aphorism(Head->Cont->Get_Content(), Head->Cont->Get_Estimation(), ofst);
         Head = Head->Next;
     }
 }
 
-void Storehouse::Out_Only_Aphorism(ofstream& ofst) {
-    //ofst << endl;
+void Storehouse::Out_Only_Aphorism(string Content, int Estimation, ofstream& ofst) {
+    ofst << endl;
 }
 
-void Aphorism::Out_Only_Aphorism(ofstream& ofst) {
-    Out_Data(ofst);
+void Aphorism::Out_Only_Aphorism(string Content, int Estimation, ofstream& ofst) {
+    Out_Data(Content, Estimation, ofst);
+}
+
+void Container::Set_Head(Node* _Head)
+{
+    Head = _Head;
+}
+
+void Container::Set_Len(int _Len)
+{
+    Len = _Len;
+}
+
+Node* Container::Get_Head()
+{
+    return Head;
+}
+
+int Container::Get_Len()
+{
+    return Len;
+}
+
+void Storehouse::Set_Content(string _Content)
+{
+    Content = _Content;
+}
+
+void Storehouse::Set_Estimation(int _Estimation)
+{
+    Estimation = _Estimation;
+}
+
+string Storehouse::Get_Content()
+{
+    return Content;
+}
+
+int Storehouse::Get_Estimation()
+{
+    return Estimation;
+}
+
+void Aphorism::Set_Author(string _Author)
+{
+    Author = _Author;
+}
+
+string Aphorism::Get_Author()
+{
+    return Author;
+}
+
+void Proverb::Set_Country(string _Country)
+{
+    Country = _Country;
+}
+
+string Proverb::Get_Country()
+{
+    return Country;
+}
+
+void Riddle::Set_Answer(string _Answer)
+{
+    Answer = _Answer;
+}
+
+string Riddle::Get_Answer()
+{
+    return Answer;
 }
